@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"build:vercel": "PUBLIC_BUILD_VERCEL=true vite build && node scripts/add-optimized-images-to-vercel-output-config",
 		"preview": "vite preview",
 		"lint": "prettier --check .",
 		"format": "prettier --write ."
