@@ -1,4 +1,4 @@
-![image](https://github.com/leoj3n/svelte-vercel-optimized-images/assets/990216/8d466747-7d1f-4f69-bf16-e0f3b307d7ab)
+[![image](https://github.com/leoj3n/svelte-vercel-optimized-images/assets/990216/8d466747-7d1f-4f69-bf16-e0f3b307d7ab)](https://svelte-vercel-optimized-images.vercel.app/)
 
 # svelte-vercel-optimized-images
 
