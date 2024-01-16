@@ -77,7 +77,7 @@ The generated SvelteKit app is now pushed to a GitHub repository and deployed to
 The next step is to add some images to the app that can later be optimized by Vercel.
 
 - Go to <https://placekitten.com> and right-click download any three cat images.
-- Save the images to the project under the `./static` directory and name them `cat1.jpeg`, `cat2.jpeg`, `cat3.jpeg`.
+- Save to the project under the `./static` directory and name them `cat1.jpeg`, `cat2.jpeg`, `cat3.jpeg`.
 - Edit `./src/routes/+page.svelte` and add an `img` tag pointing to `/cat1.jpeg` as well as import `./styles.css`:
   ```html
   <script>
