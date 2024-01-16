@@ -4,6 +4,28 @@
 
 This project demonstrates how you might configure Vercel to generate optimized images for a SvelteKit app.
 
+- [Create a SvelteKit App and Deploy to Vercel](#create-a-sveltekit-app-and-deploy-to-vercel)
+  * [Create a SvelteKit Skeleton Project](#create-a-sveltekit-skeleton-project)
+  * [Push to GitHub](#push-to-github)
+  * [Deploy to Vercel](#deploy-to-vercel)
+- [Add Some Images and Deploy Again](#add-some-images-and-deploy-again)
+  * [Add Some Images](#add-some-images)
+  * [Deploy Again](#deploy-again)
+- [Configure Vercel to Generate Optimized Images](#configure-vercel-to-generate-optimized-images)
+  * [New Build Command](#new-build-command)
+  * [Configuration Modification Script](#configuration-modification-script)
+- [Use the Vercel Generated Optimized Images](#use-the-vercel-generated-optimized-images)
+  * [Create `Image.svelte`](#create-imagesvelte)
+  * [Using `Image.svelte`](#using-imagesvelte)
+  * [Using `PUBLIC_BUILD_VERCEL` in CSS](#using-public_build_vercel-in-css)
+- [Test on Vercel](#test-on-vercel)
+  * [Command Reference](#command-reference)
+    + [Build and Preview](#build-and-preview)
+    + [`dev` Mode](#dev-mode)
+    + [Optomized Images on Vercel](#optomized-images-on-vercel)
+  * [References](#references)
+  * [Possibly related?](#possibly-related)
+
 ## Create a SvelteKit App and Deploy to Vercel
 
 If you haven't got a SvelteKit app already deployed to Vercel, follow these steps...
