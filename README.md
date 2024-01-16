@@ -13,7 +13,7 @@ This Svelte app demonstrates how you might setup optimized images using Vercel.
 - `npm create svelte@latest svelte-vercel-optimized-images`
 
 <details>
-  <summary>Command output</summary>
+  <summary>CLICK HERE to see command output</summary>
   
 ```
 Need to install the following packages:
@@ -115,13 +115,13 @@ Now let's publish the app to Vercel again with these unoptimized cat images.
 
 Simply add the changes to git and push to GitHub to trigger a new Vercel build...
 
-- `git add -A && git commit -m 'add unoptimized cat images' && git push
+- `git add -A && git commit -m 'add unoptimized cat images' && git push`
 - Go to Vercel dashboard and click "Visit" for the deployed app (once it is done building and deploying).
 - You should see the two cat images on a domain like `https://svelte-vercel-optimized-images.vercel.app/`
 
 ### Tell Vercel to generate optimized images
 
-In order to optimize the cat images, we will need to add some dependencies using `npm`, create some new script files, and edit our `img` tags to use a new custom component we will create.
+In order to optimize the cat images, we will need to create some new script files, and edit our `img` tags to use a new custom component we will create.
 
 First, edit `package.json` and add to the `scripts` section after the `build` entry the following:
 
@@ -163,7 +163,7 @@ At this point we are telling Vercel to generate the optimized images but are not
 
 ### Use the Vercel generated optimized images in our app
 
-The optimized images will be available behind a special URL provided by Vercel when the images config is provided like we have done.
+The optimized images will be available behind a special URL provided by Vercel.
 
 This url looks something like: `<your-app-name>.vercel.app/_vercel/image?url=%2Fcat1.jpeg&w=1280&q=42`
 
@@ -231,7 +231,7 @@ export function srcset(src, widths = [640, 960, 1280], quality = 90) {
 }
 ```
 
-What the exported `srcset` function does is for hard-coded sizes `[640, 960, 1280]` with default quality `90`, generate the `srcset` html which ends up looking like:
+What the exported `srcset` function does is, for hard-coded sizes `[640, 960, 1280]` with default quality `90`, generate the `srcset` string which ends up looking like:
 
 ```html
 srcset="/_vercel/image?url=%2Fcat1.jpeg&amp;w=640&amp;q=42 640w, /_vercel/image?url=%2Fcat1.jpeg&amp;w=960&amp;q=42 960w, /_vercel/image?url=%2Fcat1.jpeg&amp;w=1280&amp;q=42 1280w"
@@ -265,10 +265,18 @@ When not a `PUBLIC_BUILD_VERCEL`, this will simply point to our static `/cat1.jp
 We can also use the vercel optimized image using this pattern in the CSS stylesheet:
 
 ```css
+h1 {
+  background-image: url(/cat1.jpeg);
+}
+
 .vercel-build h1 {
-  background-image: url(/_vercel/image?url=%2Fimages%2Fangle-envelope.png&w=1280&q=80);
+  background-image: url(/_vercel/image?url=%2Fcat1.jpeg&w=1280&q=80);
 }
 ```
+
+Yes, you do have to type `/_vercel/image?url=...` in a `.vercel-build` override CSS class, as needed, when doing CSS.
+
+This could perhaps be automated in with yet another processing step if desired/implemented.
 
 #### Test if working on Vercel
 
