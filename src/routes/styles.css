@@ -1,3 +1,7 @@
 h1 {
   background-image: url(/cat2.jpeg);
 }
+
+.vercel-build h1 {
+  background-image: url(/_vercel/image?url=%2Fcat2.jpeg&w=1280&q=80);
+}
