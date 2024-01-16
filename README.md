@@ -276,9 +276,7 @@ h1 {
 }
 ```
 
-Yes, you do have to type `/_vercel/image?url=...` in a `.vercel-build` override CSS class, as needed, when doing CSS.
-
-This all could perhaps be automated in with yet another processing step if desired/implemented.
+Yes, you do have to type `/_vercel/image?url=...` in a `.vercel-build` override CSS class, as needed, when doing CSS. This could perhaps be automated in with yet another processing step if desired/implemented.
 
 In order for this to work, we need to have `.vercel-build` injected onto some HTML element that wraps our app.
 
