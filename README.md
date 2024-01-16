@@ -262,6 +262,8 @@ Notice the forward slash before the `/cat1.jpeg` src attribute; this will be aut
 
 When not a `PUBLIC_BUILD_VERCEL`, this will simply point to our static `/cat1.jpeg` image.
 
+#### Using `PUBLIC_BUILD_VERCEL` in CSS
+
 We can also use the vercel optimized image using this pattern in the CSS stylesheet:
 
 ```css
@@ -276,7 +278,27 @@ h1 {
 
 Yes, you do have to type `/_vercel/image?url=...` in a `.vercel-build` override CSS class, as needed, when doing CSS.
 
-This could perhaps be automated in with yet another processing step if desired/implemented.
+This all could perhaps be automated in with yet another processing step if desired/implemented.
+
+In order for this to work, we need to have `.vercel-build` injected onto some HTML element that wraps our app.
+
+One way we can do this is to wrap the existing `+page.svelte` HTML in a `div` with dynamic `class:vercel-build` like so:
+
+```svelte
+<script>
+  import './styles.css';
+  import Image from '$lib/components/Image.svelte';
+  import { PUBLIC_BUILD_VERCEL } from '$env/static/public';
+</script>
+
+<div class="app" class:vercel-build={PUBLIC_BUILD_VERCEL === 'true'}>
+  <h1>Welcome to SvelteKit</h1>
+  <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+  <p>
+    <Image src="/cat1.jpeg" alt="Third photo" quality={42} />
+  </p>
+</div>
+``` 
 
 #### Test if working on Vercel
 
