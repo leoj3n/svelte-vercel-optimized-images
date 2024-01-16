@@ -1,12 +1,6 @@
-# svelte-vercel-optimized-images Demo App
+# svelte-vercel-optimized-images
 
 This project demonstrates how you might configure Vercel to generate optimized images for a SvelteKit app.
-
-The basic idea is taken from:
-
-- https://github.com/sveltejs/kit/pull/9787#issuecomment-1572876158
-- https://github.com/Rich-Harris/sveltesnaps
-- https://github.com/hartwm/vercel-images-sveltekit
 
 ## Create a SvelteKit App and Deploy to Vercel
 
@@ -331,6 +325,12 @@ You can also check the Network tab in the developer tools to see that the images
 #### Optomized Images on Vercel
 
 - `npm run build:vercel`
+
+### References
+
+- https://github.com/sveltejs/kit/pull/9787#issuecomment-1572876158
+- https://github.com/Rich-Harris/sveltesnaps
+- https://github.com/hartwm/vercel-images-sveltekit
 
 ### Possibly related?
 
