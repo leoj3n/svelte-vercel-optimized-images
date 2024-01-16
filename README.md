@@ -8,7 +8,7 @@ The basic idea is taken from:
 - https://github.com/Rich-Harris/sveltesnaps
 - https://github.com/hartwm/vercel-images-sveltekit
 
-## Create SvelteKit App and Deploy Vercel
+## Create a SvelteKit App and Deploy to Vercel
 
 If you haven't got a SvelteKit app already deployed to Vercel, follow these steps...
 
@@ -64,7 +64,7 @@ If you haven't got a SvelteKit app already deployed to Vercel, follow these step
 
 - `git init && git add -A && git commit -m 'init'`
 - Go to your GitHub profile page and select the "+" in top right to click "New repository".
-- Name repository like "svelte-vercel-optimized-images".
+- Name the repository something like "svelte-vercel-optimized-images".
 - `git remote add origin https://github.com/<username>/svelte-vercel-optimized-images.git`
 - `git branch -M main && git push -u origin main`
 
@@ -313,7 +313,11 @@ Right click to inspect the cat images and see they are using `srcset` pointing t
 
 `https://svelte-vercel-optimized-images.vercel.app/_vercel/image?url=%2Fcat1.jpeg&w=1280&q=42`
 
-### Various Commands
+You can also check the Network tab in the developer tools to see that the images are being served as AVIF:
+
+![image](https://github.com/leoj3n/svelte-vercel-optimized-images/assets/990216/846afeb8-fc90-4695-998b-62389e71c9b5)
+
+### Command Reference
 
 #### Build and Preview
 
