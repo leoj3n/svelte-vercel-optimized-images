@@ -2,7 +2,7 @@
 
 # svelte-vercel-optimized-images
 
-This project demonstrates how you might configure Vercel to generate optimized images for a SvelteKit app.
+This project demonstrates how you might configure Vercel to generate optimized images for SvelteKit.
 
 - [Create a SvelteKit App and Deploy to Vercel](#create-a-sveltekit-app-and-deploy-to-vercel)
   * [Create a SvelteKit Skeleton Project](#create-a-sveltekit-skeleton-project)
