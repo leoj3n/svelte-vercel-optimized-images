@@ -1,6 +1,6 @@
-# svelte-vercel-optimized-images
-
 ![image](https://github.com/leoj3n/svelte-vercel-optimized-images/assets/990216/8d466747-7d1f-4f69-bf16-e0f3b307d7ab)
+
+# svelte-vercel-optimized-images
 
 This project demonstrates how you might configure Vercel to generate optimized images for a SvelteKit app.
 
