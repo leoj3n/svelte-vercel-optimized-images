@@ -345,7 +345,7 @@ In order for this CSS to work, we need to have `.vercel-build` injected onto som
 </div>
 ```
 
-Notice the addition of `class:vercel-build={PUBLIC_BUILD_VERCEL === 'true'}`.
+Notice the new import and addition of `class:vercel-build={PUBLIC_BUILD_VERCEL === 'true'}`.
 
 ## Test on Vercel
 
