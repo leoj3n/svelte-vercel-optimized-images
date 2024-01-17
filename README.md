@@ -258,9 +258,9 @@ Notice the `if (dev || PUBLIC_BUILD_VERCEL !== 'true') return src;` line which s
 The exported `srcset` function will, for hard-coded sizes `[640, 960, 1280]` with default quality `90`, generate an `srcset` like:
 
 ```console
-srcset=" /_vercel/image?url=%2Fcat1.jpeg&amp;w=640&amp;q=90 640w,
-/_vercel/image?url=%2Fcat1.jpeg&amp;w=960&amp;q=90 960w,
-/_vercel/image?url=%2Fcat1.jpeg&amp;w=1280&amp;q=90 1280w"
+srcset=" /_vercel/image?url=%2Fcat1.jpeg&w=640&q=90 640w,
+/_vercel/image?url=%2Fcat1.jpeg&w=960&q=90 960w,
+/_vercel/image?url=%2Fcat1.jpeg&w=1280&q=90 1280w"
 ```
 
 Putting this all together, our `Image` component results in an `<img />` element like:
@@ -269,9 +269,9 @@ Putting this all together, our `Image` component results in an `<img />` element
 <img
 	alt="Third photo"
 	srcset="
-		/_vercel/image?url=%2Fcat1.jpeg&amp;w=640&amp;q=90   640w,
-		/_vercel/image?url=%2Fcat1.jpeg&amp;w=960&amp;q=90   960w,
-		/_vercel/image?url=%2Fcat1.jpeg&amp;w=1280&amp;q=90 1280w
+		/_vercel/image?url=%2Fcat1.jpeg&w=640&q=90   640w,
+		/_vercel/image?url=%2Fcat1.jpeg&w=960&q=90   960w,
+		/_vercel/image?url=%2Fcat1.jpeg&w=1280&q=90 1280w
 	"
 	sizes="(max-width: 640px) 640px,
        (max-width: 960px) 960px,
