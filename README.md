@@ -33,48 +33,48 @@ If you haven't got a SvelteKit app already deployed to Vercel, follow these step
 ### Create a SvelteKit Skeleton Project
 
 - `npm create svelte@latest svelte-vercel-optimized-images`
+
   <details>
     <summary>(click here to see selected options)</summary>
 
-    <!-- prettier-ignore-start -->
-    ```console
-    Need to install the following packages:
-      create-svelte@6.0.6
-    Ok to proceed? (y) y
+  ```console
+  Need to install the following packages:
+    create-svelte@6.0.6
+  Ok to proceed? (y) y
 
-    create-svelte version 6.0.6
+  create-svelte version 6.0.6
 
-    ┌  Welcome to SvelteKit!
-    │
-    ◇  Which Svelte app template?
-    │  Skeleton project
-    │
-    ◇  Add type checking with TypeScript?
-    │  No
-    │
-    ◇  Select additional options (use arrow keys/space bar)
-    │  Add Prettier for code formatting
-    │
-    └  Your project is ready!
+  ┌  Welcome to SvelteKit!
+  │
+  ◇  Which Svelte app template?
+  │  Skeleton project
+  │
+  ◇  Add type checking with TypeScript?
+  │  No
+  │
+  ◇  Select additional options (use arrow keys/space bar)
+  │  Add Prettier for code formatting
+  │
+  └  Your project is ready!
 
-    ✔ Prettier
-      https://prettier.io/docs/en/options.html
-      https://github.com/sveltejs/prettier-plugin-svelte#options
+  ✔ Prettier
+    https://prettier.io/docs/en/options.html
+    https://github.com/sveltejs/prettier-plugin-svelte#options
 
-    Install community-maintained integrations:
-      https://github.com/svelte-add/svelte-add
+  Install community-maintained integrations:
+    https://github.com/svelte-add/svelte-add
 
-    Next steps:
-      1: cd svelte-vercel-optimized-images
-      2: npm install
-      3: git init && git add -A && git commit -m "Initial commit" (optional)
-      4: npm run dev -- --open
+  Next steps:
+    1: cd svelte-vercel-optimized-images
+    2: npm install
+    3: git init && git add -A && git commit -m "Initial commit" (optional)
+    4: npm run dev -- --open
 
-    To close the dev server, hit Ctrl-C
+  To close the dev server, hit Ctrl-C
 
-    Stuck? Visit us at https://svelte.dev/chat
-    ```
-    <!-- prettier-ignore-end -->
+  Stuck? Visit us at https://svelte.dev/chat
+  ```
+
   </details>
 
 - `cd svelte-vercel-optimized-images`
@@ -124,6 +124,7 @@ The next step is to add some images to the app that can later be optimized by Ve
   ```
 
 - Create `./src/routes/styles.css` with code:
+
   ```css
   /* styles.css */
 
@@ -131,6 +132,7 @@ The next step is to add some images to the app that can later be optimized by Ve
   	background-image: url(/cat2.jpeg);
   }
   ```
+
 - Preview the changes locally using `npm run build && npm run preview -- --open`.
 
 There should be a repeating cat image behind the H1 text, and another cat image below the welcome paragraph.
