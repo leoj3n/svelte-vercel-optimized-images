@@ -325,7 +325,7 @@ h1 {
 
 Yes, you do have to type `/_vercel/image?url=...` in a `.vercel-build` override CSS class, as needed, when doing CSS. This could perhaps be automated out in a processing step.
 
-In order for this CSS to work, we need to have `.vercel-build` injected onto some HTML element that wraps our app. One way we can do this is to wrap the existing `+page.svelte` HTML in a `div` with dynamic `class:vercel-build` like so:
+In order for this CSS to work, we need to have `.vercel-build` injected onto some HTML element that wraps our app. One way we can do this is to wrap the existing `+page.svelte` HTML in a `div` with dynamic attribute of `class:vercel-build` like so:
 
 ```svelte
 <!-- +page.svelte -->
