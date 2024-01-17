@@ -5,26 +5,26 @@
 This project demonstrates how you might configure Vercel to generate optimized images for SvelteKit.
 
 - [Create a SvelteKit App and Deploy to Vercel](#create-a-sveltekit-app-and-deploy-to-vercel)
-  * [Create a SvelteKit Skeleton Project](#create-a-sveltekit-skeleton-project)
-  * [Push to GitHub](#push-to-github)
-  * [Deploy to Vercel](#deploy-to-vercel)
+  - [Create a SvelteKit Skeleton Project](#create-a-sveltekit-skeleton-project)
+  - [Push to GitHub](#push-to-github)
+  - [Deploy to Vercel](#deploy-to-vercel)
 - [Add Some Images and Deploy Again](#add-some-images-and-deploy-again)
-  * [Add Some Images](#add-some-images)
-  * [Deploy Again](#deploy-again)
+  - [Add Some Images](#add-some-images)
+  - [Deploy Again](#deploy-again)
 - [Configure Vercel to Generate Optimized Images](#configure-vercel-to-generate-optimized-images)
-  * [New Build Command](#new-build-command)
-  * [Configuration Modification Script](#configuration-modification-script)
+  - [New Build Command](#new-build-command)
+  - [Configuration Modification Script](#configuration-modification-script)
 - [Use the Vercel Generated Optimized Images](#use-the-vercel-generated-optimized-images)
-  * [Create `Image.svelte`](#create-imagesvelte)
-  * [Using `Image.svelte`](#using-imagesvelte)
-  * [Using `PUBLIC_BUILD_VERCEL` in CSS](#using-public_build_vercel-in-css)
+  - [Create `Image.svelte`](#create-imagesvelte)
+  - [Using `Image.svelte`](#using-imagesvelte)
+  - [Using `PUBLIC_BUILD_VERCEL` in CSS](#using-public_build_vercel-in-css)
 - [Test on Vercel](#test-on-vercel)
-  * [Command Reference](#command-reference)
-    + [Build and Preview](#build-and-preview)
-    + [`dev` Mode](#dev-mode)
-    + [Optomized Images on Vercel](#optomized-images-on-vercel)
-  * [References](#references)
-  * [Possibly related?](#possibly-related)
+  - [Command Reference](#command-reference)
+    - [Build and Preview](#build-and-preview)
+    - [`dev` Mode](#dev-mode)
+    - [Optomized Images on Vercel](#optomized-images-on-vercel)
+  - [References](#references)
+  - [Possibly related?](#possibly-related)
 
 ## Create a SvelteKit App and Deploy to Vercel
 
@@ -34,45 +34,47 @@ If you haven't got a SvelteKit app already deployed to Vercel, follow these step
 
 - `npm create svelte@latest svelte-vercel-optimized-images`
   <details>
-    <summary>(click here to see selected creation options)</summary>
-    
-  ```console
-  Need to install the following packages:
-    create-svelte@6.0.6
-  Ok to proceed? (y) y
+    <summary>(click here to see selected options)</summary>
 
-  create-svelte version 6.0.6
+    <!-- prettier-ignore-start -->
+    ```console
+    Need to install the following packages:
+      create-svelte@6.0.6
+    Ok to proceed? (y) y
 
-  ┌  Welcome to SvelteKit!
-  │
-  ◇  Which Svelte app template?
-  │  Skeleton project
-  │
-  ◇  Add type checking with TypeScript?
-  │  No
-  │
-  ◇  Select additional options (use arrow keys/space bar)
-  │  Add Prettier for code formatting
-  │
-  └  Your project is ready!
+    create-svelte version 6.0.6
 
-  ✔ Prettier
-    https://prettier.io/docs/en/options.html
-    https://github.com/sveltejs/prettier-plugin-svelte#options
+    ┌  Welcome to SvelteKit!
+    │
+    ◇  Which Svelte app template?
+    │  Skeleton project
+    │
+    ◇  Add type checking with TypeScript?
+    │  No
+    │
+    ◇  Select additional options (use arrow keys/space bar)
+    │  Add Prettier for code formatting
+    │
+    └  Your project is ready!
 
-  Install community-maintained integrations:
-    https://github.com/svelte-add/svelte-add
+    ✔ Prettier
+      https://prettier.io/docs/en/options.html
+      https://github.com/sveltejs/prettier-plugin-svelte#options
 
-  Next steps:
-    1: cd svelte-vercel-optimized-images
-    2: npm install
-    3: git init && git add -A && git commit -m "Initial commit" (optional)
-    4: npm run dev -- --open
+    Install community-maintained integrations:
+      https://github.com/svelte-add/svelte-add
 
-  To close the dev server, hit Ctrl-C
+    Next steps:
+      1: cd svelte-vercel-optimized-images
+      2: npm install
+      3: git init && git add -A && git commit -m "Initial commit" (optional)
+      4: npm run dev -- --open
 
-  Stuck? Visit us at https://svelte.dev/chat
-  ```
+    To close the dev server, hit Ctrl-C
+
+    Stuck? Visit us at https://svelte.dev/chat
+    ```
+    <!-- prettier-ignore-end -->
   </details>
 
 - `cd svelte-vercel-optimized-images`
@@ -105,22 +107,28 @@ The next step is to add some images to the app that can later be optimized by Ve
 - Go to <https://placekitten.com> and right-click download any three cat images.
 - Save to the project under the `./static` directory and name them `cat1.jpeg`, `cat2.jpeg`, `cat3.jpeg`.
 - Edit `./src/routes/+page.svelte` to add an `img` tag for `/cat1.jpeg` and import `./styles.css`:
+
   ```html
+  <!-- +page.svelte -->
+
   <script>
-    import './styles.css';
+  	import './styles.css';
   </script>
-  
+
   <h1>Welcome to SvelteKit</h1>
   <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-  
+
   <p>
-      <img src="/cat1.jpeg" alt="Cat One" />
+  	<img src="/cat1.jpeg" alt="Cat One" />
   </p>
   ```
+
 - Create `./src/routes/styles.css` with code:
   ```css
+  /* styles.css */
+
   h1 {
-    background-image: url(/cat2.jpeg);
+  	background-image: url(/cat2.jpeg);
   }
   ```
 - Preview the changes locally using `npm run build && npm run preview -- --open`.
@@ -159,6 +167,8 @@ This new `build:vercel` run script expects to call `./scripts/add-optimized-imag
 Create a `scripts` directory and file `add-optimized-images-to-vercel-output-config.js` with contents:
 
 ```js
+// add-optimized-images-to-vercel-output-config.js
+
 import fs from 'node:fs';
 
 const config_file = '.vercel/output/config.json';
@@ -195,7 +205,7 @@ Create a new folder under `./lib` called `components` and a new file under that 
 In this new file (`./src/lib/components/Image.svelte`) paste the following:
 
 ```svelte
-// Image.svelte
+<!-- Image.svelte -->
 
 <script lang="ts">
 	import { srcset } from '$lib/vercel-image';
@@ -247,25 +257,27 @@ Notice the `if (dev || PUBLIC_BUILD_VERCEL !== 'true') return src;` line which s
 
 The exported `srcset` function will, for hard-coded sizes `[640, 960, 1280]` with default quality `90`, generate an `srcset` like:
 
-```html
-srcset="
-  /_vercel/image?url=%2Fcat1.jpeg&amp;w=640&amp;q=90 640w,
-  /_vercel/image?url=%2Fcat1.jpeg&amp;w=960&amp;q=90 960w,
-  /_vercel/image?url=%2Fcat1.jpeg&amp;w=1280&amp;q=90 1280w"
+```console
+srcset=" /_vercel/image?url=%2Fcat1.jpeg&amp;w=640&amp;q=90 640w,
+/_vercel/image?url=%2Fcat1.jpeg&amp;w=960&amp;q=90 960w,
+/_vercel/image?url=%2Fcat1.jpeg&amp;w=1280&amp;q=90 1280w"
 ```
 
 Putting this all together, our `Image` component results in an `<img />` element like:
 
 ```html
-<img alt="Third photo"
-  srcset="
-    /_vercel/image?url=%2Fcat1.jpeg&amp;w=640&amp;q=90 640w,
-    /_vercel/image?url=%2Fcat1.jpeg&amp;w=960&amp;q=90 960w,
-    /_vercel/image?url=%2Fcat1.jpeg&amp;w=1280&amp;q=90 1280w"
-  sizes="(max-width: 640px) 640px,
+<img
+	alt="Third photo"
+	srcset="
+		/_vercel/image?url=%2Fcat1.jpeg&amp;w=640&amp;q=90   640w,
+		/_vercel/image?url=%2Fcat1.jpeg&amp;w=960&amp;q=90   960w,
+		/_vercel/image?url=%2Fcat1.jpeg&amp;w=1280&amp;q=90 1280w
+	"
+	sizes="(max-width: 640px) 640px,
        (max-width: 960px) 960px,
         1280px"
-  loading="lazy" />
+	loading="lazy"
+/>
 ```
 
 ### Using `Image.svelte`
@@ -274,8 +286,8 @@ To use it, edit `+page.svelte` and in the `<script>` tag add:
 
 ```svelte
 <script>
-  import './styles.css';
-  import Image from '$lib/components/Image.svelte'; // IMPORT CUSTOM COMPONENT
+	import './styles.css';
+	import Image from '$lib/components/Image.svelte'; // IMPORT CUSTOM COMPONENT
 </script>
 ```
 
@@ -287,43 +299,49 @@ Then where we had `<img src="/cat1.jpeg" alt="Cat One" />` replace that with:
 
 Notice the forward slash before the `/cat1.jpeg` src attribute; this will be automatically changed to point to `/_vercel/image?url=...` by our `srcset` function in `./lib/vercel-image.js`.
 
-When not a `PUBLIC_BUILD_VERCEL`, this will simply point to our static `/cat1.jpeg` image.
+When not `PUBLIC_BUILD_VERCEL`, this will simply point to our static `/cat1.jpeg` image.
 
 ### Using `PUBLIC_BUILD_VERCEL` in CSS
 
 We can also use the vercel optimized image using this pattern in the CSS stylesheet:
 
 ```css
+/* style.css */
+
 h1 {
-  background-image: url(/cat1.jpeg);
+	background-image: url(/cat1.jpeg);
 }
 
 .vercel-build h1 {
-  background-image: url(/_vercel/image?url=%2Fcat1.jpeg&w=1280&q=80);
+	background-image: url(/_vercel/image?url=%2Fcat1.jpeg&w=1280&q=80);
 }
 ```
 
-Yes, you do have to type `/_vercel/image?url=...` in a `.vercel-build` override CSS class, as needed, when doing CSS. This could perhaps be automated in with yet another processing step if desired/implemented.
+Yes, you do have to type `/_vercel/image?url=...` in a `.vercel-build` override CSS class, as needed, when doing CSS. This could perhaps be automated out in a processing step.
 
 In order for this CSS to work, we need to have `.vercel-build` injected onto some HTML element that wraps our app.
 
 One way we can do this is to wrap the existing `+page.svelte` HTML in a `div` with dynamic `class:vercel-build` like so:
 
 ```svelte
+<!-- +page.svelte -->
+
 <script>
-  import './styles.css';
-  import Image from '$lib/components/Image.svelte';
-  import { PUBLIC_BUILD_VERCEL } from '$env/static/public';
+	import './styles.css';
+	import Image from '$lib/components/Image.svelte';
+	import { PUBLIC_BUILD_VERCEL } from '$env/static/public';
 </script>
 
 <div class="app" class:vercel-build={PUBLIC_BUILD_VERCEL === 'true'}>
-  <h1>Welcome to SvelteKit</h1>
-  <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-  <p>
-    <Image src="/cat1.jpeg" alt="Third photo" quality={42} />
-  </p>
+	<h1>Welcome to SvelteKit</h1>
+	<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+	<p>
+		<Image src="/cat1.jpeg" alt="Third photo" quality={42} />
+	</p>
 </div>
-``` 
+```
+
+Notice the addition of `class:vercel-build={PUBLIC_BUILD_VERCEL === 'true'}`.
 
 ## Test on Vercel
 
@@ -361,4 +379,3 @@ You can also check the Network tab in the developer tools to see that the images
 ### Possibly related?
 
 - https://kit.svelte.dev/docs/images#sveltejs-enhanced-img
-
