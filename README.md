@@ -222,9 +222,11 @@ In this new file (`./src/lib/components/Image.svelte`) paste the following:
 
 <img
 	srcset={srcset(src, undefined, quality)}
-	sizes="(max-width: 640px) 640px,
-           (max-width: 960px) 960px,
-            1280px"
+	sizes="
+    (max-width: 640px) 640px,
+    (max-width: 960px) 960px,
+    1280px
+  "
 	{alt}
 	{width}
 	{height}
@@ -275,9 +277,11 @@ Putting this all together, our `Image` component results in an `<img />` element
 		/_vercel/image?url=%2Fcat1.jpeg&w=960&q=90   960w,
 		/_vercel/image?url=%2Fcat1.jpeg&w=1280&q=90 1280w
 	"
-	sizes="(max-width: 640px) 640px,
-       (max-width: 960px) 960px,
-        1280px"
+	sizes="
+    (max-width: 640px) 640px,
+    (max-width: 960px) 960px,
+    1280px
+  "
 	loading="lazy"
 />
 ```
