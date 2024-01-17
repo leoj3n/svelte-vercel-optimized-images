@@ -11,9 +11,11 @@
 
 <img
 	srcset={srcset(src, undefined, quality)}
-	sizes="(max-width: 640px) 640px,
-       (max-width: 960px) 960px,
-        1280px"
+	sizes="
+		(max-width: 640px) 640px,
+		(max-width: 960px) 960px,
+		1280px
+	"
 	{alt}
 	{width}
 	{height}
