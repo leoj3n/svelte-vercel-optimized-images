@@ -190,6 +190,29 @@ You will need to change the `svelte-vercel-optimized-images.vercel.app` domain t
 
 This configuration modification tells Vercel to generate optimized images at sizes `640, 960, 1280` with file formats `'image/avif', 'image/webp'`. Next, we will specify and utilize these generated images in an `srcset` within our app.
 
+### (UPDATE) Alternative to Build Script
+
+It is now possible to pass the configuration to the Vercel adapter as documented in the [SvelteKit docs](https://kit.svelte.dev/docs/adapter-vercel#image-optimization).
+
+To do this, make the adapter usage in `svelte.config.js` look something like that:
+
+```js
+/// file: svelte.config.js
+import adapter from '@sveltejs/adapter-vercel';
+export default {
+	kit: {
+		adapter({
+			images: {
+				sizes: [640, 828, 1200, 1920, 3840],
+				formats: ['image/avif', 'image/webp'],
+				minimumCacheTTL: 300,
+				domains: ['example-app.vercel.app'],
+			}
+		})
+	}
+};
+```
+
 ## Use the Vercel Generated Optimized Images
 
 The optimized images will be available behind a special URL provided by Vercel which looks something like:
