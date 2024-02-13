@@ -213,6 +213,8 @@ export default {
 };
 ```
 
+To use the Vercel adapter, [you must install the underlying adapter](https://kit.svelte.dev/docs/adapter-auto#environment-specific-configuration).
+
 ## Use the Vercel Generated Optimized Images
 
 The optimized images will be available behind a special URL provided by Vercel which looks something like:
