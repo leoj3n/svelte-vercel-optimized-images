@@ -190,7 +190,7 @@ You will need to change the `svelte-vercel-optimized-images.vercel.app` domain t
 
 This configuration modification tells Vercel to generate optimized images at sizes `640, 960, 1280` with file formats `'image/avif', 'image/webp'`. Next, we will specify and utilize these generated images in an `srcset` within our app.
 
-### (UPDATE) Alternative to Build Script
+### (UPDATE) Alternative to Build Script: Adapter Configuration
 
 It is now possible to pass the configuration to the Vercel adapter as documented in the [SvelteKit docs](https://kit.svelte.dev/docs/adapter-vercel#image-optimization).
 
@@ -214,6 +214,18 @@ export default {
 ```
 
 To use the Vercel adapter, [you must install the underlying adapter](https://kit.svelte.dev/docs/adapter-auto#environment-specific-configuration).
+
+This is probably a better option as it allows us to not have to make the configuration modification script outlined above, and we can remove the `&& node scripts/add-optimized-images-to-vercel-output-config` added to the build command in `package.json`.
+
+### (UPDATE 2) Alternative to Adapter Configuration: Create a `vercel.json`
+
+Yet another option would be to create a `vercel.json` in the root of the project repository that will be picked up by Vercel upon deploy.
+
+You could pass in your image settings this way but since the adapter provides an API might as well just use that.
+
+Note that the above other two methods have the benefit that the `sizes` settings could be passed in as a variable, which would be an improvement overall as we would no longer be hard-coding these values across mutliple files.
+
+While not covered here, that would be a good improvement to make. Then just save using `vercel.json` for any other settings you might want to have, such as `Cache-Control` `headers` for certain paths/files, etc.
 
 ## Use the Vercel Generated Optimized Images
 
